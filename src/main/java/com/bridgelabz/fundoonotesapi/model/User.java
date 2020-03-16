@@ -2,7 +2,13 @@ package com.bridgelabz.fundoonotesapi.model;
 
 import java.util.Date;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Component;
+@EntityScan
+@Component
 public class User {
+	@Id
 	private int id;
 	private String firstName;
 	private String lastName;
@@ -10,8 +16,7 @@ public class User {
 	private String password;
 	private long phone;
 	private Date date = new Date();
-	private boolean isValidate;
-	private boolean signOut;
+
 	public int getId() {
 		return id;
 	}
@@ -48,29 +53,9 @@ public class User {
 	public void setPhone(long phone) {
 		this.phone = phone;
 	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	public boolean isValidate() {
-		return isValidate;
-	}
-	public void setValidate(boolean isValidate) {
-		this.isValidate = isValidate;
-	}
-	public boolean isSignOut() {
-		return signOut;
-	}
-	public void setSignOut(boolean signOut) {
-		this.signOut = signOut;
-	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", phone=" + phone + ", date=" + date + ", isValidate=" + isValidate
-				+ ", signOut=" + signOut + "]";
+				+ ", password=" + password + ", phone=" + phone + ", date=" + date + "]";
 	}
-
 }
